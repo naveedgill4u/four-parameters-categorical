@@ -1,0 +1,112 @@
+---
+title: "Four Parameters Categorical"
+author: Naveed Ahmad
+execute: 
+  echo: false
+---
+
+
+
+```{r}
+#| message: false
+library(tidyverse)
+library(primer.data)
+library(tidymodels)
+library(broom)
+library(dplyr)
+library(gt)
+library(marginaleffects)
+library(ggplot2)
+library(dplyr)
+```
+
+
+<div style="text-align: justify;">
+## Summary 
+Different groups of Americans participate in voting for Presidential elections. What was the difference in voting preference of male and female groups for voting in Presidential election of 1992 for three contesting candidates Bill Clinton, George H. W. Bush, and Ross Perot? We will answer this question using data from National Election Survey. However, our findings are based upon some assumptions that survey data is valid, stable, responded by all sections of society eligible for voting without any bias. The statistical model I have used is multinominal regression because regressor variable was having more than one outcome with sex as covariate. Prediction result shows that 52% female voters will prefer voting for Clinton with uncertainty that approximately voting preference of female group may decrease by 2% or increase by 6% in favor of Clinton.
+</div>
+## Multinomial logistic regression is as under 
+$$
+Y \sim \text{Multinomial}(\boldsymbol{\rho}), \quad \text{where } \boldsymbol{\rho} = (\rho_1, \rho_2, \ldots, \rho_K)
+$$
+## Mathematical model is as under
+$$
+P(Y = k) = \rho_k = \frac{e^{\beta_{k0} + \beta_{k1} X_1 + \beta_{k2} X_2 + \cdots + \beta_{kn} X_n}}{\sum_{j=1}^{K} e^{\beta_{j0} + \beta_{j1} X_1 + \beta_{j2} X_2 + \cdots + \beta_{jn} X_n}}
+$$
+
+```{r}
+#| cache: true
+nes_92 <- nes |> 
+  filter(year == 1992) |> 
+  select(sex, pres_vote) |> 
+  drop_na() |> 
+  mutate(pres_vote = as.factor(case_when(
+    pres_vote == "Democrat" ~ "Clinton",
+    pres_vote == "Republican" ~ "Bush",
+    pres_vote == "Third Party" ~ "Perot",
+  ))) 
+
+fit_nes <- multinom_reg(engine = "nnet") |>
+  fit(pres_vote ~ sex, data = nes_92)
+```
+
+## The fitted multinomial logistic regression model is:
+$$
+\begin{aligned}
+\hat{\rho}_{clinton} &= \frac{e^{0.45 - 0.25 \cdot male}}{1 + e^{0.45 - 0.25 \cdot male} + e^{-0.85 + 0.42 \cdot male}} \\
+\hat{\rho}_{perot}   &= \frac{e^{-0.85 + 0.42 \cdot male}}{1 + e^{0.45 - 0.25 \cdot male} + e^{-0.85 + 0.42 \cdot male}} \\
+\hat{\rho}_{bush}    &= \frac{1}{1 + e^{0.45 - 0.25 \cdot male} + e^{-0.85 + 0.42 \cdot male}}
+\end{aligned}
+$$
+
+## Regression Coefficients
+```{r}
+model_results <- tibble::tibble(
+  y.level = c("Clinton", "Clinton", "Perot", "Perot"),
+  term = c("(Intercept)", "sexMale", "(Intercept)", "sexMale"),
+  estimate = c(0.4553900, -0.2554092, -0.8518724, 0.4202485),
+  conf.low = c(0.3090152, -0.4726795, -1.0612590, 0.1376819),
+  conf.high = c(0.60176476, -0.03813882, -0.64248586, 0.70281513))
+
+# Round to 2 decimal places and create a gt table
+model_results |>
+  mutate(across(estimate:conf.high, ~ round(.x, 2))) |>
+  gt() |>
+  tab_header(
+    title = "Fitted Multinomial Logistic Regression Coefficients") |>
+  cols_label(
+    y.level = "Outcome",
+    term = "Term",
+    estimate = "Estimate",
+    conf.low = "CI Lower",
+    conf.high = "CI Upper")
+```
+
+## Prediction about voting preference
+```{r}
+plot_predictions(fit_nes, 
+                 by = "sex",
+                 type = "prob",
+                 draw = FALSE) |>
+# Create the plot
+ggplot(aes(x = group, y = estimate, fill = sex)) +
+  geom_col(position = position_dodge(width = 0.8), width = 0.7) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high),
+                position = position_dodge(width = 0.8), width = 0.2) +
+  labs(
+    title = "Voting Preference by Candidate and Sex",
+    subtitle = "Female respondents were more likely to support Clinton; males leaned more toward Perot relative to Bush",
+    caption = "Source: American National Election Studies: 2022",
+    x = "Candidate",
+    y = "Estimated Probability of Vote") +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  scale_fill_manual(values = c("Female" = "#D55E00", "Male" = "#0072B2")) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16),
+    plot.subtitle = element_text(size = 12, margin = margin(b = 10)),
+    plot.caption = element_text(size = 10, face = "italic"),
+    axis.title = element_text(face = "bold"),
+    legend.title = element_blank())                    
+```
+
