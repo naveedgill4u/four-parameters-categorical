@@ -1,31 +1,80 @@
 [
   {
+    "objectID": "source.html",
+    "href": "source.html",
+    "title": "",
+    "section": "",
+    "text": "Data for four parameters categorical analysis has been used from American National Election Studies. I am deeply thankful to ** Preceptor ** for guiding, giving access to this data set and organizing Free Data Science Camp. You can approach to me through emailNaveed Ahmad. You can also visit me at Git hub to see my work about Data Analysis.\nTo learn about four parameters categorical, swith to home tag above."
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "",
+    "section": "",
+    "text": "Analysis start with a question. In this study question was; what was the diffrence of preference on basis of sex in Presedential election of 1992 for costing vote in favor of three contesting candidates Clinton, Bush and Perto? Data set was used from American National Election Studies. Preceptor table was drawn keeping in view outcome variables. The code may be seen in index file. However, Preceptor table was as :\n\n\nA tibble: 1,658 × 2 sex pres_vote  \n1 Female Bush\n2 Female Bush\n3 Female Clinton\n4 Male Bush\n5 Female Clinton\n6 Female Clinton\n7 Female Perot\n8 Male Bush\n9 Female Bush\n10 Male Perot\n# ℹ 1,648 more rows\n\n\n\nPopulation is the whole number of eligable voters in USA for Presidential election of 1992.\n\n\n\nThe relationship between probability family and mathematical model was built by using AI tool. Since, this analysis was having more than two outcome variable therefore, multinominal logistic regression and mathematical model was built up as:"
+  },
+  {
+    "objectID": "analysis.html#preceptor-table",
+    "href": "analysis.html#preceptor-table",
+    "title": "",
+    "section": "",
+    "text": "A tibble: 1,658 × 2 sex pres_vote  \n1 Female Bush\n2 Female Bush\n3 Female Clinton\n4 Male Bush\n5 Female Clinton\n6 Female Clinton\n7 Female Perot\n8 Male Bush\n9 Female Bush\n10 Male Perot\n# ℹ 1,648 more rows"
+  },
+  {
+    "objectID": "analysis.html#population",
+    "href": "analysis.html#population",
+    "title": "",
+    "section": "",
+    "text": "Population is the whole number of eligable voters in USA for Presidential election of 1992."
+  },
+  {
+    "objectID": "analysis.html#models",
+    "href": "analysis.html#models",
+    "title": "",
+    "section": "",
+    "text": "The relationship between probability family and mathematical model was built by using AI tool. Since, this analysis was having more than two outcome variable therefore, multinominal logistic regression and mathematical model was built up as:"
+  },
+  {
+    "objectID": "analysis.html#multinomial-logistic-regression-is-as-under",
+    "href": "analysis.html#multinomial-logistic-regression-is-as-under",
+    "title": "",
+    "section": "Multinomial logistic regression is as under",
+    "text": "Multinomial logistic regression is as under\n\\[\nP(Y = k) = \\rho_k = \\frac{e^{\\beta_{k0} + \\beta_{k1} X_1 + \\beta_{k2} X_2 + \\cdots + \\beta_{kn} X_n}}{\\sum_{j=1}^{K} e^{\\beta_{j0} + \\beta_{j1} X_1 + \\beta_{j2} X_2 + \\cdots + \\beta_{jn} X_n}}\n\\]"
+  },
+  {
+    "objectID": "analysis.html#mathematical-model-is-as-under",
+    "href": "analysis.html#mathematical-model-is-as-under",
+    "title": "",
+    "section": "Mathematical model is as under",
+    "text": "Mathematical model is as under\n\\[\nY \\sim \\text{Multinomial}(\\boldsymbol{\\rho}), \\quad \\text{where } \\boldsymbol{\\rho} = (\\rho_1, \\rho_2, \\ldots, \\rho_K)\n\\]\n\nThe coefficients were drawn for parameters and fitted multinominal logistic regression was also designed with help of AI."
+  },
+  {
+    "objectID": "analysis.html#fitted-multinomial-logistic-regression-is-as-under",
+    "href": "analysis.html#fitted-multinomial-logistic-regression-is-as-under",
+    "title": "",
+    "section": "Fitted multinomial logistic regression is as under",
+    "text": "Fitted multinomial logistic regression is as under\n\\[\n\\begin{aligned}\n\\hat{\\rho}_{clinton} &= \\frac{e^{0.45 - 0.25 \\cdot male}}{1 + e^{0.45 - 0.25 \\cdot male} + e^{-0.85 + 0.42 \\cdot male}} \\\\\n\\hat{\\rho}_{perot}   &= \\frac{e^{-0.85 + 0.42 \\cdot male}}{1 + e^{0.45 - 0.25 \\cdot male} + e^{-0.85 + 0.42 \\cdot male}} \\\\\n\\hat{\\rho}_{bush}    &= \\frac{1}{1 + e^{0.45 - 0.25 \\cdot male} + e^{-0.85 + 0.42 \\cdot male}}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am expert in Audit, Accounts, Finance and student of Data Analysis. I hold Master of Philosophy degree in Business Management with elective as Finance. I do love Data Analysis. I have prepared this website for learning about four parameters categorical. I have used data from American National Election Studies. I am deeply thankful to ** Preceptor ** for guiding, giving access to this data set and organizing Free Data Science Camp. You can approach to me through emailNaveed Ahmad. You can also visit me at Git hub to see my work about Data Analysis. To learn about four parameters categorical, swith to home tag above."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Four Parameters Categorical",
     "section": "",
-    "text": "Different groups of Americans participate in voting for Presidential elections. What was the difference in voting preference of male and female groups for voting in Presidential election of 1992 for three contesting candidates Bill Clinton, George H. W. Bush, and Ross Perot? We will answer this question using data from National Election Survey. However, our findings are based upon some assumptions that survey data is valid, stable, responded by all sections of society eligible for voting without any bias. The statistical model I have used is multinominal regression because regressor variable was having more than one outcome with sex as covariate. Prediction result shows that 52% female voters will prefer voting for Clinton with uncertainty that approximately voting preference of female group may decrease by 2% or increase by 6% in favor of Clinton."
+    "text": "Different groups of Americans participate in voting for Presidential elections. What was the difference in voting preference of male and female groups for voting in Presidential election of 1992 for three contesting candidates Bill Clinton, George H. W. Bush, and Ross Perot? We will answer this question using data from National Election Survey. However, our findings are based upon some assumptions that survey data is valid, stable, responded by all sections of society eligible for voting without any bias. The statistical model I have used is multinominal regression because regressor variable was having more than one outcome with sex as covariate. Regression coefficients were measured and on the basis of estimates of parameters, Predictions were found and result in the form of a chart shows that 52% female voters will prefer voting for Clinton with uncertainty that approximately voting preference of female group may decrease by 2% or increase by 6% in favor of Clinton."
   },
   {
     "objectID": "index.html#summary",
     "href": "index.html#summary",
     "title": "Four Parameters Categorical",
     "section": "",
-    "text": "Different groups of Americans participate in voting for Presidential elections. What was the difference in voting preference of male and female groups for voting in Presidential election of 1992 for three contesting candidates Bill Clinton, George H. W. Bush, and Ross Perot? We will answer this question using data from National Election Survey. However, our findings are based upon some assumptions that survey data is valid, stable, responded by all sections of society eligible for voting without any bias. The statistical model I have used is multinominal regression because regressor variable was having more than one outcome with sex as covariate. Prediction result shows that 52% female voters will prefer voting for Clinton with uncertainty that approximately voting preference of female group may decrease by 2% or increase by 6% in favor of Clinton."
-  },
-  {
-    "objectID": "index.html#multinomial-logistic-regression-is-as-under",
-    "href": "index.html#multinomial-logistic-regression-is-as-under",
-    "title": "Four Parameters Categorical",
-    "section": "Multinomial logistic regression is as under",
-    "text": "Multinomial logistic regression is as under\n\\[\nY \\sim \\text{Multinomial}(\\boldsymbol{\\rho}), \\quad \\text{where } \\boldsymbol{\\rho} = (\\rho_1, \\rho_2, \\ldots, \\rho_K)\n\\] ## Mathematical model is as under \\[\nP(Y = k) = \\rho_k = \\frac{e^{\\beta_{k0} + \\beta_{k1} X_1 + \\beta_{k2} X_2 + \\cdots + \\beta_{kn} X_n}}{\\sum_{j=1}^{K} e^{\\beta_{j0} + \\beta_{j1} X_1 + \\beta_{j2} X_2 + \\cdots + \\beta_{jn} X_n}}\n\\]"
-  },
-  {
-    "objectID": "index.html#the-fitted-multinomial-logistic-regression-model-is",
-    "href": "index.html#the-fitted-multinomial-logistic-regression-model-is",
-    "title": "Four Parameters Categorical",
-    "section": "The fitted multinomial logistic regression model is:",
-    "text": "The fitted multinomial logistic regression model is:\n\\[\n\\begin{aligned}\n\\hat{\\rho}_{clinton} &= \\frac{e^{0.45 - 0.25 \\cdot male}}{1 + e^{0.45 - 0.25 \\cdot male} + e^{-0.85 + 0.42 \\cdot male}} \\\\\n\\hat{\\rho}_{perot}   &= \\frac{e^{-0.85 + 0.42 \\cdot male}}{1 + e^{0.45 - 0.25 \\cdot male} + e^{-0.85 + 0.42 \\cdot male}} \\\\\n\\hat{\\rho}_{bush}    &= \\frac{1}{1 + e^{0.45 - 0.25 \\cdot male} + e^{-0.85 + 0.42 \\cdot male}}\n\\end{aligned}\n\\]"
+    "text": "Different groups of Americans participate in voting for Presidential elections. What was the difference in voting preference of male and female groups for voting in Presidential election of 1992 for three contesting candidates Bill Clinton, George H. W. Bush, and Ross Perot? We will answer this question using data from National Election Survey. However, our findings are based upon some assumptions that survey data is valid, stable, responded by all sections of society eligible for voting without any bias. The statistical model I have used is multinominal regression because regressor variable was having more than one outcome with sex as covariate. Regression coefficients were measured and on the basis of estimates of parameters, Predictions were found and result in the form of a chart shows that 52% female voters will prefer voting for Clinton with uncertainty that approximately voting preference of female group may decrease by 2% or increase by 6% in favor of Clinton."
   },
   {
     "objectID": "index.html#regression-coefficients",
@@ -42,10 +91,10 @@
     "text": "Prediction about voting preference"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
+    "objectID": "index.html#description-of-the-chart",
+    "href": "index.html#description-of-the-chart",
+    "title": "Four Parameters Categorical",
+    "section": "Description of the Chart",
+    "text": "Description of the Chart\n\nThe chart illustrates the estimated probability of voting in 1992 Presidential elections for three candidates—Bush, Clinton, and Perot—based on respondents’ sex, using data from the American National Election Studies (2022). Each candidate is represented on the x-axis with two adjacent bars: orange for Female respondents and blue for Male respondents. The y-axis shows the estimated probability of vote, ranging from 0% to over 60%, and includes error bars to reflect uncertainty or variability in the estimates.\nThe chart reveals clear gender-based differences in voting preferences. Female respondents showed a significantly higher estimated probability of voting for Clinton compared to males, with Clinton receiving the highest overall support among females—exceeding 50%. In contrast, male respondents were more inclined to support Perot than females, whose support for him was notably lower. Support for Bush was relatively similar between the sexes, with a slight edge for males"
   }
 ]
