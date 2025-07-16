@@ -1,0 +1,11 @@
+---
+title: ""
+author: Naveed Ahmad
+format: html
+---
+
+<div style="text-align: justify;">Data for four parameters categorical analysis has been used from [American National Election Studies](https://electionstudies.org/data-center/anes-time-series-cumulative-data-file/). I am deeply thankful to ** Preceptor ** for guiding, giving access to this data set and organizing [*Free Data Science Camp*](https://www.free-datacamp.org/). You can approach to me through email[Naveed Ahmad](naveedgill4u@yahoo.com). You can also visit me at [Git hub](https://github.com/naveedgill4u) to see my work about Data Analysis.
+
+To learn about four parameters categorical, swith to home tag above.
+</div> 
+

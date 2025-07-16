@@ -1,5 +1,8 @@
 ---
 title: "About"
+author: Naveed Ahmad
 ---
 
-About this site
+<div style="text-align: justify;">I am expert in Audit, Accounts, Finance and student of Data Analysis. I hold Master of Philosophy degree in Business Management with elective as Finance. I do love Data Analysis. I have prepared this website for learning about four parameters categorical. I have used data from [American National Election Studies](https://electionstudies.org/data-center/anes-time-series-cumulative-data-file/). I am deeply thankful to ** Preceptor ** for guiding, giving access to this data set and organizing [*Free Data Science Camp*](https://www.free-datacamp.org/). You can approach to me through email[Naveed Ahmad](naveedgill4u@yahoo.com). You can also visit me at [Git hub](https://github.com/naveedgill4u) to see my work about Data Analysis.
+To learn about four parameters categorical, swith to home tag above.
+</div> 

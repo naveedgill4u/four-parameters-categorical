@@ -2,12 +2,19 @@ project:
   type: website
 
 website:
-  title: "Four Parameters Categorical"
+  title: ""
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: source.qmd
+        text: Source
+      -  href: analysis.qmd
+         text: Analysis 
+
+      
+      
 
 format:
   html:
